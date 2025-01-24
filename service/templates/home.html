@@ -1,0 +1,557 @@
+{%load static%}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Dental clinic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{%static 'service/css/open-iconic-bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'service/css/animate.css'%}">
+    
+    <link rel="stylesheet" href="{%static 'service/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{%static 'service/css/owl.theme.default.min.css'%}">
+    <link rel="stylesheet" href="{%static 'service/css/magnific-popup.css'%}">
+
+    <link rel="stylesheet" href="{%static 'service/css/aos.css'%}">
+
+    <link rel="stylesheet" href="{%static 'service/css/ionicons.min.css'%}">
+
+    <link rel="stylesheet" href="{%static 'service/css/bootstrap-datepicker.css'%}">
+    <link rel="stylesheet" href="{%static 'service/css/jquery.timepicker.css'%}">
+
+    
+    <link rel="stylesheet" href="{%static 'service/css/flaticon.css'%}">
+    <link rel="stylesheet" href="{%static 'service/css/icomoon.css'%}">
+    <link rel="stylesheet" href="{%static 'service/css/style.css'%}">
+  </head>
+  <body>
+    
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="{% url 'home'%}">Linda Afya<span> Dental clinic</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="{% url 'home'%}" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+
+			  {%if user.is_authenticated%}
+			  <li class="nav-item"><a href="accounts/logout" class="nav-link">Logout</a></li>
+
+				{%else%}
+			  <li class="nav-item"><a href="accounts/register" class="nav-link">Register</a></li>
+			  <li class="nav-item"><a href="accounts/login" class="nav-link">Login</a></li>
+				{% endif %}
+
+	          <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#modalRequest"><span>Make an Appointment</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+    <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image: url({%static 'service/images/bg_1.jpg'%});">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+            <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Modern Dentistry in a Calm and Relaxed Environment</h1>
+              <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Professional Dental Care for the Whole Family in affordable prices</p>
+              <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Make an Appointment</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url({%static 'service/images/bg_2.jpg'%});">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+            <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Modern Achieve Your Desired Perfect Smile</h1>
+              <p class="mb-4">we are committed to providing exceptional dental care. Our team of experienced dentists and staff are dedicated to ensuring your comfort and delivering the best treatment possible.</p>
+              <p><a href="#" class="btn btn-primary px-4 py-3">Make an Appointment</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-intro">
+    	<div class="container">
+    		<div class="row no-gutters">
+    			<div class="col-md-3 color-1 p-4">
+    				<h3 class="mb-4">Emergency Cases</h3>
+    				<p>in cases of an emergency you can contact us on the number below and we will get to you immediately</p>
+    				<span class="phone-number">+ 254109236578</span>
+    			</div>
+    			<div class="col-md-3 color-2 p-4">
+    				<h3 class="mb-4">Opening Hours</h3>
+    				<p class="openinghours d-flex">
+    					<span>Monday - Friday</span>
+    					<span>8:00 - 19:00</span>
+    				</p>
+    				<p class="openinghours d-flex">
+    					<span>Saturday</span>
+    					<span>10:00 - 17:00</span>
+    				</p>
+    				<p class="openinghours d-flex">
+    					<span>Sunday</span>
+    					<span>10:00 - 16:00</span>
+    				</p>
+    			</div>
+    			<div class="col-md-6 color-3 p-4">
+    				<h3 class="mb-2">Make an Appointment</h3>
+    				<form action="#" class="appointment-form">
+	            <div class="row">
+	            	<div class="col-sm-4">
+	                <div class="form-group">
+			              <div class="select-wrap">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                      	<option value="">Department</option>
+                        <option value="">Teeth Whitening</option>
+                        <option value="">Teeth CLeaning</option>
+                        <option value="">Quality Brackets</option>
+                        <option value="">Modern Anesthetic</option>
+                      </select>
+                    </div>
+			            </div>
+	              </div>
+	              <div class="col-sm-4">
+	                <div class="form-group">
+	                	<div class="icon"><span class="icon-user"></span></div>
+			              <input type="text" class="form-control" id="appointment_name" placeholder="Name">
+			            </div>
+	              </div>
+	              <div class="col-sm-4">
+	                <div class="form-group">
+	                	<div class="icon"><span class="icon-paper-plane"></span></div>
+			              <input type="text" class="form-control" id="appointment_email" placeholder="Email">
+			            </div>
+	              </div>
+	            </div>
+	            <div class="row">
+	              <div class="col-sm-4">
+	                <div class="form-group">
+	                	<div class="icon"><span class="ion-ios-calendar"></span></div>
+	                  <input type="text" class="form-control appointment_date" placeholder="Date">
+	                </div>    
+	              </div>
+	              <div class="col-sm-4">
+	                <div class="form-group">
+	                	<div class="icon"><span class="ion-ios-clock"></span></div>
+	                  <input type="text" class="form-control appointment_time" placeholder="Time">
+	                </div>
+	              </div>
+	              <div class="col-sm-4">
+	                <div class="form-group">
+	                	<div class="icon"><span class="icon-phone2"></span></div>
+	                  <input type="text" class="form-control" id="phone" placeholder="Phone">
+	                </div>
+	              </div>
+	            </div>
+	            
+	            <div class="form-group">
+	              <input type="submit" value="Make an Appointment" class="btn btn-primary">
+	            </div>
+	          </form>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+  
+    <section class="ftco-section ftco-services">
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2 class="mb-2">Our Service Keeps you Smile</h2>
+            <p>We offer comprehensive dental care designed to enhance your oral health and brighten your smile, ensuring you leave with confidence and comfort.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-tooth-1"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Teeth Whitening</h3>
+                <p>Brighten your smile with our professional teeth whitening services, designed to safely remove stains and discoloration.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-dental-care"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Teeth Cleaning</h3>
+                <p>Maintain your oral health with our thorough teeth cleaning services, which help prevent cavities and gum disease.</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-tooth-with-braces"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Quality Brackets</h3>
+                <p>Achieve a perfect smile with our durable and comfortable orthodontic brackets, tailored to fit your needs.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-anesthesia"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Modern Anesthetic</h3>
+                <p>Experience pain-free dentistry with our state-of-the-art anesthetic techniques, ensuring your comfort at every visit.</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+      <div class="container-wrap mt-5">
+      	<div class="row d-flex no-gutters">
+      		<div class="col-md-6 img" style="background-image: url({%static 'service/images/about-2.jpg'%});">
+      		</div>
+      		<div class="col-md-6 d-flex">
+      			<div class="about-wrap">
+      				<div class="heading-section heading-section-white mb-5 ftco-animate">
+		            <h2 class="mb-2">Linda Afya Dental Clinic with a personal touch</h2>
+		            <p>Experience exceptional dental care where innovation meets personalized attention, ensuring every visit is comfortable and rewarding.</p>
+		          </div>
+      				<div class="list-services d-flex ftco-animate">
+      					<div class="icon d-flex justify-content-center align-items-center">
+      						<span class="icon-check2"></span>
+      					</div>
+      					<div class="text">
+	      					<h3>Experienced Dentist</h3>
+	      					<p>Our team of skilled and compassionate dentists is dedicated to providing top-notch care tailored to your unique needs.</p>
+      					</div>
+      				</div>
+      				<div class="list-services d-flex ftco-animate">
+      					<div class="icon d-flex justify-content-center align-items-center">
+      						<span class="icon-check2"></span>
+      					</div>
+      					<div class="text">
+	      					<h3>State-of-the-Art Technology</h3>
+	      					<p>We leverage advanced technology and modern equipment to ensure precise, efficient, and pain-free dental treatments.</p>
+      					</div>
+      				</div>
+      				<div class="list-services d-flex ftco-animate">
+      					<div class="icon d-flex justify-content-center align-items-center">
+      						<span class="icon-check2"></span>
+      					</div>
+      					<div class="text">
+	      					<h3>Comfortable Clinics</h3>
+	      					<p>Our clinics are designed to offer a relaxing and welcoming environment, making your dental visits stress-free and enjoyable.</p>
+      					</div>
+      				</div>
+      			</div>
+      		</div>
+      	</div>
+      </div>
+    </section>
+
+
+    <section class="ftco-section">
+     <div class="container">
+      	<div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2 class="mb-3">Meet Our Experience Dentist</h2>
+            <p>Our team of highly skilled dentists is dedicated to delivering exceptional care, ensuring every smile is as healthy and radiant as it can be.</p>
+          </div>
+        </div>
+        {% for doc in docs%}
+        <div class="row">
+        	<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
+        		<div class="staff">
+      				<div class="img mb-4" style="background-image: url('{{ doc.img.url }}');"></div>
+      				<div class="info text-center">
+      					<h3><a href="teacher-single.html">{{doc.name}}</a></h3>
+      					<span class="position">{{doc.job}}</span>
+      					<div class="text">
+	        				<p>{{doc.desc}}</p>
+	        				<ul class="ftco-social">
+			              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+			              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+			              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+			              <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+			            </ul>
+	        			</div>
+      				</div>
+        		</div>
+        	</div>
+        </div>    
+        	{% endfor%}
+          <div class="row  mt-5 justify-conten-center">
+        	<div class="col-md-8 ftco-animate">
+        		<p>At our clinic, we combine advanced dental technology with personalized care to provide you with an unmatched experience. Your comfort and satisfaction are our priorities.</p>
+        	</div>
+           </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({%static 'service/images/bg_1.jpg'%});" data-stellar-background-ratio="0.5">
+    	<div class="container">
+    		<div class="row d-flex align-items-center">
+    			<div class="col-md-3 aside-stretch py-5">
+    				<div class=" heading-section heading-section-white ftco-animate pr-md-4">
+	            <h2 class="mb-3">Achievements</h2>
+	            <p>We take pride in our commitment to excellence, with a history of providing top-quality dental care and earning the trust of our valued patients.</p>
+	          </div>
+    			</div>
+    			<div class="col-md-9 py-5 pl-md-5">
+		    		<div class="row">
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		              <div class="text">
+		                <strong class="number" data-number="14">0</strong>
+		                <span>Years of Experience</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		              <div class="text">
+		                <strong class="number" data-number="4500">0</strong>
+		                <span>Qualified Dentist</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		              <div class="text">
+		                <strong class="number" data-number="4200">0</strong>
+		                <span>Happy Smiling Customer</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		              <div class="text">
+		                <strong class="number" data-number="320">0</strong>
+		                <span>Patients Per Year</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+	      </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2 class="mb-3">Our Best Pricing</h2>
+            <p>We have the best packages for both you and your family , choose the best offer for you and let us provide the results for you.</p>
+          </div>
+        </div>
+    		<div class="row">
+        	<div class="col-md-3 ftco-animate">
+        		<div class="pricing-entry pb-5 text-center">
+        			<div>
+	        			<h3 class="mb-4">Basic</h3>
+	        			<p><span class="price">$24.50</span> <span class="per">/ session</span></p>
+	        		</div>
+        			<ul>
+        				<li>Diagnostic Services</li>
+								<li>Professional Consultation</li>
+								<li>Tooth Implants</li>
+								<li>Surgical Extractions</li>
+								<li>Teeth Whitening</li>
+        			</ul>
+        			<p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
+        		</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="pricing-entry pb-5 text-center">
+        			<div>
+	        			<h3 class="mb-4">Standard</h3>
+	        			<p><span class="price">$34.50</span> <span class="per">/ session</span></p>
+	        		</div>
+        			<ul>
+        				<li>Diagnostic Services</li>
+								<li>Professional Consultation</li>
+								<li>Tooth Implants</li>
+								<li>Surgical Extractions</li>
+								<li>Teeth Whitening</li>
+        			</ul>
+        			<p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
+        		</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="pricing-entry active pb-5 text-center">
+        			<div>
+	        			<h3 class="mb-4">Premium</h3>
+	        			<p><span class="price">$54.50</span> <span class="per">/ session</span></p>
+	        		</div>
+        			<ul>
+        				<li>Diagnostic Services</li>
+								<li>Professional Consultation</li>
+								<li>Tooth Implants</li>
+								<li>Surgical Extractions</li>
+								<li>Teeth Whitening</li>
+        			</ul>
+        			<p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
+        		</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="pricing-entry pb-5 text-center">
+        			<div>
+	        			<h3 class="mb-4">Platinum</h3>
+	        			<p><span class="price">$89.50</span> <span class="per">/ session</span></p>
+	        		</div>
+        			<ul>
+        				<li>Diagnostic Services</li>
+								<li>Professional Consultation</li>
+								<li>Tooth Implants</li>
+								<li>Surgical Extractions</li>
+								<li>Teeth Whitening</li>
+        			</ul>
+        			<p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
+        		</div>
+        	</div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section-parallax">
+      <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+              <h2>Subcribe to our Newsletter</h2>
+              <p>Do not miss out on the latest news about our clinic in addition to knowledge on whats happening in the medical world by subscribing to our newspaper.</p>
+              <div class="row d-flex justify-content-center mt-5">
+                <div class="col-md-8">
+                  <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                      <input type="text" class="form-control" placeholder="Enter email address">
+                      <input type="submit" value="Subscribe" class="submit px-3">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+		<section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+					<div class="col-md-3 ftco-animate">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url({%static 'service/images/gallery-1.jpg'%});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-search"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url({%static 'service/images/gallery-2.jpg'%});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-search"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url({%static 'service/images/gallery-3.jpg'%});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-search"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url({%static 'service/images/gallery-4.jpg'%});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-search"></span>
+    					</div>
+						</a>
+					</div>
+        </div>
+    	</div>
+    </section>
+		
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+ <div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequestLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalRequestLabel">Make an Appointment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="#">
+            <div class="form-group">
+              <input type="text" class="form-control" id="appointment_name" placeholder="Full Name">
+            </div>
+            <div class="form-group">
+             <input type="text" class="form-control" id="appointment_email" placeholder="Email">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                 <input type="text" class="form-control appointment_date" placeholder="Date">
+                </div>    
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                 <input type="text" class="form-control appointment_time" placeholder="Time">
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="form-group">
+              <textarea name="" id="appointment_message" class="form-control" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Make an Appointment" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <script src="{%static 'service/js/jquery.min.js'%}"></script>
+  <script src="{%static 'service/js/jquery-migrate-3.0.1.min.js'%}"></script>
+  <script src="{%static 'service/js/popper.min.js'%}"></script>
+  <script src="{%static 'service/js/bootstrap.min.js'%}"></script>
+  <script src="{%static 'service/js/jquery.easing.1.3.js'%}"></script>
+  <script src="{%static 'service/js/jquery.waypoints.min.js'%}"></script>
+  <script src="{%static 'service/js/jquery.stellar.min.js'%}"></script>
+  <script src="{%static 'service/js/owl.carousel.min.js'%}"></script>
+  <script src="{%static 'service/js/jquery.magnific-popup.min.js'%}"></script>
+  <script src="{%static 'service/js/aos.js'%}"></script>
+  <script src="{%static 'service/js/jquery.animateNumber.min.js'%}"></script>
+  <script src="{%static 'service/js/bootstrap-datepicker.js'%}"></script>
+  <script src="{%static 'service/js/jquery.timepicker.min.js'%}"></script>
+  <script src="{%static 'service/js/scrollax.min.js'%}"></script>
+  <script src="{%static 'service/js/google-map.js'%}"></script>
+  <script src="{%static 'service/js/main.js'%}"></script>
+    
+  </body>
+</html>
